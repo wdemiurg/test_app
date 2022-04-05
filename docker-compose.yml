@@ -40,7 +40,7 @@ services:
     environment:
        GF_SECURITY_ADMIN_PASSWORD: admin
        GF_INSTALL_PLUGINS: 'grafana-clock-panel,grafana-simple-json-datasource'
-       GF_USERS_ALLOW_SIGN_UP: false
+       GF_USERS_ALLOW_SIGN_UP: "false"
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
@@ -59,8 +59,7 @@ services:
       test: curl --fail http://test_app:8080/health || exit 1
       interval: 5s
       retries: 5
-      start_period: 20s
-      timeout: 10s
+      
 
 
       
