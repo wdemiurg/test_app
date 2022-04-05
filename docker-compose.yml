@@ -49,10 +49,18 @@ services:
     depends_on:
       - prometheus
   test_app:
-   image: test_app:latest
+   image: wdemiurg/test_app:latest
    restart: always
    environment:
-      link: "https://googleee.com"
+      link: "https://google.com"
    ports:
       - 8080:8080
+   healthcheck:
+      test: curl --fail http://test_app:8080/health || exit 1
+      interval: 5s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+
+
       

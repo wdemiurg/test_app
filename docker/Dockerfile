@@ -1,3 +1,4 @@
+#wdemiurg/test_app:last
 FROM golang:1.16-alpine
 
 WORKDIR /app
